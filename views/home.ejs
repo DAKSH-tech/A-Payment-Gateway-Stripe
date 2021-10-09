@@ -1,0 +1,37 @@
+<head>
+    <link href= "assets/css/home.css" rel="stylesheet">
+</head>
+<body>
+    <nav>
+       
+        <h1>Web Application for Payment gateway</h1>
+        <ul id="nave">
+        <%if(locals.user){%>
+        <li class="list"><%=locals.user.name%></li>
+        <li class="list"><%=locals.user.email%></li>
+        <li class="list"><a href="/user/signOut">SIGN-Out</a></li>
+        <%}else{%>
+        <li class="list"><a href="/user/signIn">Sign-IN</a></li>
+        <li class="list"><a href="/user/signUp">SIGN-UP</a></li>
+    <%}%>
+        </ul>
+    </nav>
+    <div id="item">
+           <%for(i of data){%>
+            <ul id="items">
+            <li><img src="/assets/Images/<%= i.photo%>.jpg"></li>
+            <li><p><%= i.amount%>RS</p></li>
+            <li><h2><%= i.name%></h2></li>
+            <li>
+                <form action="/create-checkout-session" method="POST">
+                <input type="number" name="quantity" placeholder="Enter quantity" value=1>
+                <input type="hidden" name="unit_amount" value="<%=i.unit_amount%>" placeholder="Enter greater than 2000">
+                <input type="hidden" name="name" value="Panda">
+                <input type="hidden" name="id" value=<%= i.id%>>
+                <button type="submit">Buy</button>
+            </form</li>
+            </ul>
+        <%}%>
+   </div>
+<script src="/assets/js/script.js"></script>
+</body>

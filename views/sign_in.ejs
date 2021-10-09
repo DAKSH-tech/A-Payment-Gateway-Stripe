@@ -1,0 +1,15 @@
+<style>
+    body{
+        background-color: azure;
+    }
+</style>
+<h1>SIGN IN</h1>
+<title><%=title%></title><br>
+<form action="/user/createSession" method="POST">
+    <label>Username</label>
+    <input type="text" name="email" placeholder="Email" required>&nbsp;&nbsp
+    <label>Password</label>
+    <input type="password" name="password" placeholder="Password" required>&nbsp
+    <input type="submit" name="Sign In">
+</form>
+<br>
