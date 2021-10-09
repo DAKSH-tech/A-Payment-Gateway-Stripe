@@ -1,2 +1,2 @@
-# Botspot-AI
+# Stripe 
 A payment gateway integration with website
